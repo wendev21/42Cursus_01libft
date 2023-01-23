@@ -1,19 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wecorzo- <wecorzo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 11:38:06 by wecorzo-          #+#    #+#             */
-/*   Updated: 2023/01/23 15:05:41 by wecorzo-         ###   ########.fr       */
+/*   Created: 2023/01/12 15:12:01 by wecorzo-          #+#    #+#             */
+/*   Updated: 2023/01/19 17:51:31 by wecorzo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/* #include<stdio.h>
+#include<stdlib.h>
+#include<strings.h>*/
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	ft_bzero(void *str, size_t n)
 {
-	if ((c < 65 && c > 90) || (c < 97 && c > 122))
-		return (0);
-	return (1);
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		((char *)str)[i] = 0;
+		i++;
+	}
 }
+/*
+int main()
+{
+	char str[20]= "esto es una funcion";
+	char str1[20] = "esto es una funcion";
+	bzero(str1 + 2, 3);
+	printf("%s\n" , str1);
+	ft_bzero(str + 2, 3); 
+	printf("%s", str);
+	return (0);
+}*/
