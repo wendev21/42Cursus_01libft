@@ -6,12 +6,14 @@
 /*   By: wecorzo- <wecorzo-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:40:43 by wecorzo-          #+#    #+#             */
-/*   Updated: 2023/01/19 15:04:20 by wecorzo-         ###   ########.fr       */
+/*   Updated: 2023/01/23 15:23:49 by wecorzo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*#include<ctype.h>
 #include<xlocale.h>
 #include<stdio.h>*/
+
+#include "libft.h"
 
 int	ft_toupper(int c)
 {

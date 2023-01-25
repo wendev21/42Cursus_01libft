@@ -5,38 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: wecorzo- <wecorzo-@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/19 17:43:29 by wecorzo-          #+#    #+#              #
-#    Updated: 2023/01/19 17:44:48 by wecorzo-         ###   ########.fr        #
+#    Created: 2023/01/25 11:46:47 by wecorzo-          #+#    #+#              #
+#    Updated: 2023/01/25 18:11:22 by wecorzo-         ###   ########.fr        #
 #                                                                              #
-# ****************************************************************************#
+# **************************************************************************** #
 
 NAME = libft.a
-SRCS = ft_isalpha.c \
-		 ft_isdigit.c \
-		ft_isalnum.c \
-	   ft_isascii.c \
-	   ft_isprint.c \
-	   ft_strlen.c \
-	   ft_memset.c \
-	   ft_bzero.c \
-	   ft_memcpy.c \
-	   ft_memmove.c\
-	   ft_strlcpy.c \
-	   ft_strlcat.c \
-	   ft_toupper.c \
-	   ft_tolower.c \
-	   ft_strchr.c \
-	   ft_strrchr.c \
-	   ft_strncmp.c
 CC = gcc
-CFLAGS += -Wall -Wextra -Werror
-OBJECTS = $(SRCS:.c=.o)
-$(NAME): $(OBJECTS)
+CFLAGS = -Wall -Wextra -Werror
+OBJS = ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_strlen.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o ft_strlcpy.o ft_strlcat.o ft_toupper.o ft_tolower.o ft_strchr.o ft_strrchr.o
 all: $(NAME)
-	ar rc libft.a $(OBJECTS)
+$(NAME): $(OBJS)
+	ar rcs libft.a $(OBJS) libft.h
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 clean:
-	@rm -f $(OBJECTS)
+	/bin/rm -f *.o
 fclean: clean
-	@rm -f $(NAME)
+	/bin/rm -f $(NAME)
 re: fclean all
-.PHONY: all clean fclean re

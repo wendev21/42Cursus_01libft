@@ -6,12 +6,12 @@
 /*   By: wecorzo- <wecorzo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:07:26 by wecorzo-          #+#    #+#             */
-/*   Updated: 2023/01/19 17:49:56 by wecorzo-         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:42:01 by wecorzo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 

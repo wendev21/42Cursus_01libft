@@ -6,7 +6,7 @@
 /*   By: wecorzo- <wecorzo-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:10:03 by wecorzo-          #+#    #+#             */
-/*   Updated: 2023/01/19 20:06:54 by wecorzo-         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:16:51 by wecorzo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*
@@ -15,7 +15,7 @@
 */
 #include "libft.h"
 
-void	ft_memset(void *str, int c, size_t len)
+void	*ft_memset(void *str, int c, size_t len)
 {
 	size_t	i;
 
@@ -25,6 +25,7 @@ void	ft_memset(void *str, int c, size_t len)
 		((char *)str)[i] = c;
 		i++;
 	}
+	return (str);
 }
 /*
 int main()
