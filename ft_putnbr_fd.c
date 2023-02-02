@@ -6,7 +6,7 @@
 /*   By: wecorzo- <wecorzo-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 16:00:15 by wecorzo-          #+#    #+#             */
-/*   Updated: 2023/02/01 18:39:42 by wecorzo-         ###   ########.fr       */
+/*   Updated: 2023/02/02 18:25:18 by wecorzo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,6 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	else
 		unsigned_n = n;
-//se puede directam,ente hace rwrite
-//	str = "....";
-//	write(fd, str, ft_strlen(str));
-//	if (n == -2147483648)
-//	{
-//		ft_putchar_fd('-', fd);
-//		ft_putchar_fd('2', fd);
-//		unsigned_n = 2147483648u;
-//	}
 	if (unsigned_n <= 9)
 		ft_putchar_fd(unsigned_n + 48, fd);
 	if (unsigned_n > 9)
@@ -40,4 +31,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(unsigned_n % 10, fd);
 	}
 }
-
