@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wecorzo- <wecorzo-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 16:17:12 by wecorzo-          #+#    #+#             */
-/*   Updated: 2023/01/27 17:35:43 by wecorzo-         ###   ########.fr       */
+/*   Created: 2023/01/27 13:19:50 by wecorzo-          #+#    #+#             */
+/*   Updated: 2023/01/27 16:43:35 by wecorzo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t			i;
-	unsigned char	*str1;
-	unsigned char	*str2;
+	unsigned char	cc;
+	unsigned char	*str;
 
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
+	cc = (unsigned char)c;
+	str = (unsigned char *)s;
 	i = 0;
 	while (i < n)
 	{
-		if (str1[i] != str2[i])
-			return (str1[i] - str2[i]);
+		if (str[i] == cc)
+			return (&str[i]);
 		i++;
 	}
 	return (0);
@@ -32,9 +32,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 /*
 #include <stdio.h>
 #include <string.h>
-int main()
+int main ()
 {
-	printf("%d", ft_memcmp("", "hallo", 54));
-	printf("%d\n", memcmp("", "hallo", 54));
+	printf("%s\n", ft_memchr("hallo", 'a', 5 ));
+	printf("%s", memchr("hallo", 'a', 5));
 	return (0);
 }*/

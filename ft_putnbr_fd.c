@@ -1,0 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wecorzo- <wecorzo-@student.42madrid>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/01 16:00:15 by wecorzo-          #+#    #+#             */
+/*   Updated: 2023/02/01 18:39:42 by wecorzo-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	unsigned int	unsigned_n;
+
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		unsigned_n = n * -1;
+	}
+	else
+		unsigned_n = n;
+//se puede directam,ente hace rwrite
+//	str = "....";
+//	write(fd, str, ft_strlen(str));
+//	if (n == -2147483648)
+//	{
+//		ft_putchar_fd('-', fd);
+//		ft_putchar_fd('2', fd);
+//		unsigned_n = 2147483648u;
+//	}
+	if (unsigned_n <= 9)
+		ft_putchar_fd(unsigned_n + 48, fd);
+	if (unsigned_n > 9)
+	{
+		ft_putnbr_fd(unsigned_n / 10, fd);
+		ft_putnbr_fd(unsigned_n % 10, fd);
+	}
+}
+
