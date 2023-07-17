@@ -3,106 +3,103 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wecorzo- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wecorzo- <wecorzo-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 17:04:00 by wecorzo-          #+#    #+#             */
-/*   Updated: 2023/03/11 22:24:55 by wecorzo-         ###   ########.fr       */
+/*   Created: 2023/02/09 14:52:22 by wecorzo-          #+#    #+#             */
+/*   Updated: 2023/07/06 16:02:59 by wecorzo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_cwords(char const *s, char c)
+int	ft_countwords(char const *s, char c)
 {
 	size_t	i;
-	size_t	cwords;
+	size_t	words;
 
 	i = 0;
-	cwords = 0;
+	words = 0;
 	while (s[i])
 	{
 		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
-			cwords++;
+			words++;
 		i++;
 	}
-	return (cwords);
+	return (words);
 }
 
-size_t	pos(const char *s, size_t i, size_t len)
+int	ft_checkadd(const char *s, size_t i, size_t wordlen)
 {
-	if (s[i + len] != '\0')
-		i = len + i + 1;
+	if (s[i + wordlen] != '\0')
+		i = wordlen + i + 1;
 	else
-		i = i + len;
+		i = wordlen + i;
 	return (i);
 }
 
-size_t	len_word(char const *s, char c, size_t i)
-{
-	size_t	len;
-
-	len = 0;
-	while (s[i] != c && s[i] != '\0')
-	{
-		i++;
-		len++;
-	}
-	return (len);
-}
-
-char	**freeall(char **nws, size_t i)
+char	**ft_freeall(char **ptr, size_t i)
 {
 	while (i > 0)
 	{
 		i--;
-		free(nws[i]);
+		free(ptr[i]);
 	}
+	free (ptr);
 	return (NULL);
+}
+
+size_t	ft_lenword(const char *s, char c, size_t i)
+{
+	size_t	wordlen;
+
+	wordlen = 0;
+	while (s[wordlen + i] != c && s[wordlen + i] != '\0')
+		wordlen++;
+	return (wordlen);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**nws;
+	char	**ptr;
 	size_t	i;
-	size_t	j;
-	size_t	len;
+	size_t	wordcount;
+	size_t	wordlen;
 
-	i = 0;
-	j = 0;
-	nws = malloc(sizeof(char *) * (ft_cwords(s, c) + 1));
-	if (!nws)
+	ptr = malloc(sizeof(char *) * (ft_countwords(s, c) + 1));
+	if (!ptr)
 		return (NULL);
+	i = 0;
+	wordcount = 0;
 	while (s[i])
 	{
-		len = len_word(s, c, i);
+		wordlen = ft_lenword(s, c, i);
 		if (s[i] != c)
 		{
-			nws[j] = ft_substr(s, i, len);
-			if (!nws[j])
-				return (freeall(nws, j));
-			j++;
+			ptr[wordcount] = ft_substr(s, i, wordlen);
+			if (!ptr[wordcount])
+				return (ft_freeall(ptr, wordcount));
+			wordcount++;
 		}
-		i = pos(s, i, len);
+		i = ft_checkadd(s, i, wordlen);
 	}
-	nws[j] = NULL;
-	return (nws);
+	ptr[wordcount] = NULL;
+	return (ptr);
 }
 /*
 #include <stdio.h>
-
-int main(void)
+int main()
 {
-	char *str = "Holab mundo, esto es una prueba.";
-	char **arr = ft_split(str, ' ');
+	char *str = "Hola mundo es28o es un!a prueba.   ";
+	char **arr = ft_split("hello!", 32:' '); 
+	int i;
 
+	i = 0;
 	if (!arr)
-		return (1);
-
-	for (int i = 0; arr[i]; i++)
-		printf("Palabra %d: %s\n", i + 1, arr[i]);
-
-	for (int i = 0; arr[i]; i++)
-		free(arr[i]);
-	free(arr);
+		return(1);
+	while(arr[i] != NULL){
+		printf("Palabra %d: %s\n", i +1, arr[i]);
+		i++;
+	}
 
 	return (0);
 }*/

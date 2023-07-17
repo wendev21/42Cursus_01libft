@@ -6,14 +6,13 @@
 /*   By: wecorzo- <wecorzo-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:07:15 by wecorzo-          #+#    #+#             */
-/*   Updated: 2023/03/14 18:27:14 by wecorzo-         ###   ########.fr       */
+/*   Updated: 2023/07/10 21:10:49 by wecorzo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 
