@@ -6,7 +6,7 @@
 /*   By: wecorzo- <wecorzo-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:07:15 by wecorzo-          #+#    #+#             */
-/*   Updated: 2023/07/10 21:10:49 by wecorzo-         ###   ########.fr       */
+/*   Updated: 2024/01/30 07:35:50 by wecorzo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
+# include <fcntl.h>
+# include <stdio.h>
+
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5000
+#  define BUFFER_SIZE 42
 # endif
 
 # ifndef OPEN_MAX
@@ -46,6 +50,8 @@ size_t				ft_strlcpy(char *dest, const char *src, size_t dstsize);
 size_t				ft_strlcat(char *dst, char *src, size_t dstsize);
 int					ft_isalpha(int c);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
+int					ft_len(long long n, int base);
+int					ft_putchar(char c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
@@ -53,7 +59,10 @@ int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_atoi(const char *str);
+int					ft_putnum(unsigned long num, int base);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
+int					ft_putnbr(int num, char signo, int base);
+int					ft_putnbr(int num, char signo, int base);
 char				*ft_strchr(const char *s, int c);
 char				**ft_split(const char *s, char c);
 char				*ft_strrchr(const char *s, int c);
@@ -75,4 +84,7 @@ void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstdelone(t_list *lst, void (*del) (void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 void				ft_lstclear(t_list **lst, void (*del) (void *));
+int				ft_printhex(unsigned long long ptr, char c, int *i);
+int					ft_printf(char const *str, ...);
+char				*get_next_line(int fd);
 #endif

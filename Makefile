@@ -6,7 +6,7 @@
 #    By: wecorzo- <wecorzo-@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/25 11:46:47 by wecorzo-          #+#    #+#              #
-#    Updated: 2023/07/08 18:14:32 by wecorzo-         ###   ########.fr        #
+#    Updated: 2024/01/30 07:39:18 by wecorzo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 # Libft
@@ -43,7 +43,14 @@ SRCS=					ft_isdigit.c\
 						ft_strrchr.c\
 						ft_strmapi.c\
 						ft_striteri.c\
-						ft_split.c
+						ft_split.c\
+						ft_putnum.c\
+						ft_len.c\
+						ft_putnbrint.c\
+						ft_printhex.c\
+						get_next_line.c\
+						ft_printf.c
+
 OBJS			= $(SRCS:.c=.o)
 
 # Lists

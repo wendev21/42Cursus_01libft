@@ -6,13 +6,13 @@
 /*   By: wecorzo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 18:43:47 by wecorzo-          #+#    #+#             */
-/*   Updated: 2023/03/06 22:57:13 by wecorzo-         ###   ########.fr       */
+/*   Updated: 2024/01/30 07:25:38 by wecorzo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 #include "libft.h"
 
-static size_t	ft_len(int n)
+static size_t	ft_lens(int n)
 {
 	size_t	len;
 
@@ -33,7 +33,7 @@ char	*ft_itoa(int n)
 	size_t			len;
 	unsigned int	unsigned_n;
 
-	len = ft_len(n);
+	len = ft_lens(n);
 	unsigned_n = n;
 	nws = ft_calloc((len + 1), sizeof(char));
 	if (!nws)
